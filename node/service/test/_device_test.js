@@ -54,14 +54,13 @@ deviceWithSymmetricKeys.authentication = {
   }
 };
 
-var initializeDeviceWithThumbprints = Object.assign(deviceWithoutAuth, {
-  authentication: {
-    x509Thumbprint: {
-      primaryThumbprint: "0000000000000000000000000000000000000000",
-      secondaryThumbprint: "1111111111111111111111111111111111111111"
-    }
+var initializeDeviceWithThumbprints = JSON.parse(JSON.stringify(deviceWithoutAuth));
+initializeDeviceWithThumbprints.authentication = {
+  x509Thumbprint: {
+    primaryThumbprint: "0000000000000000000000000000000000000000",
+    secondaryThumbprint: "1111111111111111111111111111111111111111"
   }
-});
+};
 
 var fullDeviceWithThumbprints = JSON.stringify(initializeDeviceWithThumbprints);
 var deviceName = 'testDevice';
