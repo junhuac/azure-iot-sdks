@@ -46,14 +46,13 @@ var deviceWithoutAuth = {
   }
 };
 
-var deviceWithSymmetricKeys = Object.assign(deviceWithoutAuth, {
-  authentication: {
-    symmetricKey: {
-      primaryKey:"aBcd+eFg9h3jKl2MNO4pQrS90TUVxYzabcdefGH6iJK=",
-      secondaryKey:"ZaBcd+eFg9h3jKl2MNO4pQrS90TUVxYzabcdefGH6iJ="
-    }
-  },
-});
+var deviceWithSymmetricKeys = JSON.parse(JSON.stringify(deviceWithoutAuth));
+deviceWithSymmetricKeys.authentication = {
+  symmetricKey: {
+    primaryKey: "aBcd+eFg9h3jKl2MNO4pQrS90TUVxYzabcdefGH6iJK=",
+    secondaryKey: "ZaBcd+eFg9h3jKl2MNO4pQrS90TUVxYzabcdefGH6iJ="
+  }
+};
 
 var initializeDeviceWithThumbprints = Object.assign(deviceWithoutAuth, {
   authentication: {
